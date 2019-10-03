@@ -1,0 +1,135 @@
+@import './../setup/extends';
+@import './../setup/mixins';
+
+$content-box-margin: 15px;
+$cells: 5;
+
+.content {
+    width: calc(#{100% / $cells} - #{2 * $content-box-margin});
+    margin: $content-box-margin;
+    overflow: hidden;
+    border-radius: 12px;
+
+    &__link {
+        display: block;
+        height: 100%;
+        position: relative;
+        color: white;
+        text-decoration: none;
+    }
+
+    &__placeholder {
+        width: 100%;
+        min-height: 336px;
+        height: 100%;
+        background: lighten(black, 10%);
+        object-fit: cover;
+    }
+
+    &__placeholder--hidden {
+        display: none;
+    }
+
+    &__poster {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: none;
+        @include transition;
+    }
+
+    &__poster--visible {
+        display: block;
+    }
+
+    &__info {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(to top,
+                rgba(0, 0, 0, 0.9),
+                rgba(0, 0, 0, 0.5));
+        opacity: 0;
+        @include transition;
+    }
+
+    &__info-rating, &__info-rating-loading {
+        @extend %center-x-y;
+    }
+
+    &__info-rating-icon {
+        display: block;
+        width: 16px;
+        height: 16px;
+        background: url(/assets/images/star.svg) no-repeat;
+        margin-right: 6px;
+    }
+
+    &__info-rating-value {
+        font-size: 16px;
+    }
+
+    &__info-title {
+        width: 100%;
+        padding: 0 30px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+        position: absolute;
+        top: calc(50% + 20px);
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &__info-label {
+        display: inline-block;
+        padding-bottom: 5px;
+        font-size: 14px;
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translate(-50%, 40px);
+        border-bottom: 2px solid white;
+        @include transition;
+    }
+
+    &:hover {
+        .content__poster {
+            transform: scale(1.1);
+        }
+
+        .content__info {
+            opacity: 1;
+        }
+
+        .content__info-label {
+            transform: translate(-50%, 0);
+        }
+    }
+}
+
+@include responsive-1200 {
+    $cells: 4;
+
+    .content {
+        width: calc(#{100% / $cells} - #{2 * $content-box-margin});
+    }
+}
+
+@include responsive-980 {
+    $cells: 3;
+
+    .content {
+        width: calc(#{100% / $cells} - #{2 * $content-box-margin});
+    }
+}
+
+@include responsive-768 {
+    $cells: 2;
+
+    .content {
+        width: calc(#{100% / $cells} - #{2 * $content-box-margin});
+    }
+}

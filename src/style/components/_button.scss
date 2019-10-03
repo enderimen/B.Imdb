@@ -1,0 +1,40 @@
+@import './../setup/mixins';
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 25px;
+    outline: none;
+    cursor: pointer;
+    background: transparent;
+    color: white;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    @include transition($type: 'background');
+
+    &--large {
+        font-size: 16px;
+        padding: 14px 40px;
+    }
+
+    &--border {
+        border: solid .5px #444444;
+    }
+
+    &--light, &--active {
+        background: white;
+        color: black;
+    }
+
+    &--no-bg {
+        padding: 0;
+        background: transparent !important;
+        color: white !important;
+    }
+
+    &:hover {
+        background: darken(white, 20%);
+        color: black;
+    }
+}

@@ -1,0 +1,39 @@
+@import './../colors';
+@import './../setup/mixins';
+
+.main-header {
+    padding: 30px;
+
+    &__logo {
+        display: block;
+        width: 80px;
+        height: 40px;
+        background: url(/assets/images/logo.svg);
+        background-size: cover;
+    }
+
+    &__options {
+        margin-left: 30px;
+    }
+
+    &__sorting-label {
+        color: $brown-grey;
+        margin-right: 10px;
+    }
+}
+
+@include responsive-600 {
+    .main-header {
+        flex-direction: column !important;
+
+        &__options {
+            flex-direction: inherit !important;
+            margin: 0;
+            align-items: center;
+
+            & > * {
+                margin-top: 15px;
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+@mixin transition($duration: '.3', $type: 'all') {
+    transition: #{$duration}s #{$type} ease;
+}
+
+@mixin responsive-550 {
+    @media only screen and (max-width: 550px) {
+        @content;
+    }
+}
+
+@mixin responsive-600 {
+    @media only screen and (max-width: 600px) {
+        @content;
+    }
+}
+
+@mixin responsive-720 {
+    @media only screen and (max-width: 720px) {
+        @content;
+    }
+}
+
+@mixin responsive-768 {
+    @media only screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin responsive-980 {
+    @media only screen and (max-width: 980px) {
+        @content;
+    }
+}
+
+@mixin responsive-1200 {
+    @media only screen and (max-width: 1200px) {
+        @content;
+    }
+}
